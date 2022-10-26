@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { default as bemCssMdoules } from "bem-css-modules";
+import { Display } from "./Components/Display/Display";
+import { MemoryContainer } from "./Containers/MemoryContainer";
+import { MainKeyboard } from "./Containers/MainKeyboard";
+import { default as AppStyles } from "./App.module.scss";
+
+const style = bemCssMdoules(AppStyles);
+
+bemCssMdoules.setSettings({
+  modifierDelimiter: "--",
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style()}>
+      <Display />
+      <MemoryContainer />
+      <MainKeyboard />
     </div>
   );
 }
